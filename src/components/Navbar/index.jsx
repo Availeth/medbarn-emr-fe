@@ -56,6 +56,7 @@ const Navbar = () => {
                 href="/signup"
                 className="rounded-md bg-primary px-7 py-3 text-base font-medium text-white hover:bg-primary/90"
               >
+              
                 Sign Up
               </a>
             </div>

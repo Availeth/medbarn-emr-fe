@@ -1,29 +1,52 @@
 import React from 'react'
 import Table from '../../Table'
 import Sidenav from '../../SideNav'
+import { useState, useEffect } from 'react';
 
-const Patients = () => {
+
+const layout = () => {
+  const [patientdata, setPatientdata] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+ 
+  useEffect(() => {
+     const fetchData = async () => {
+       try {
+         const response = await fetch('http://localhost:3170/api/getallPatient');
+         if (!response.ok) {
+           throw Error('Something went wrong!');
+         }
+         const data = await response.json();
+         console.log(data)
+         setPatientdata(data);
+        //  setLoading(false);
+       } catch (error) {
+         setError(error.message);
+        //  setLoading(false);
+       }
+     };
+     fetchData();
+  }, []);
+
   return (
+
 <>
-  {/* header */}
+<Sidenav/>
 
-  < Sidenav/>
-
-  {/* body */}
-  <div className="w-full min-h-screen bg-gray-100 pt-16 pl-64">
+<div className="w-full min-h-screen bg-gray-100 pt-16 pl-64">
     <div className="p-8 text-sm text-gray-800">
-      <div className='inline-flex space-x-20 mb-4'>
-
+    <div className=' inline-flex space-x-20 mb-4'>
       <h1 className="text-4xl text-gray-700 font-bold leading-none mb-8">
-        Patients Record
+        Patient Record
       </h1>
       <a
                 href="/add-patients"
                 className="rounded-md bg-primary px-7 py-3 h-max text-base font-medium text-white hover:bg-primary/90"
               >
-             +  Add New record
+             +  Add  New record
               </a>
-      </div>
+        </div>
       {/* search bar */}
       <div className="flex justify-between">
       <input
@@ -31,7 +54,7 @@ const Patients = () => {
         name="search"
         id="search"
         v-model="searchTerm"
-        placeholder="Search Patient..."
+        placeholder="Search Surrogates..."
         className="px-2 text-md border-gray-400 rounded-l text-lg pl-11 py-1 shadow-sm float-left w-full border"
       />
       <button
@@ -42,13 +65,14 @@ const Patients = () => {
       </button>
     </div>
     {/* search bar end */}
-
-    <Table/>
+    <Table 
+    array= {patientdata}
+    />
     </div>
   </div>
-</>
 
-  )
+</>    
+)
 }
 
-export default Patients
+export default layout

@@ -1,6 +1,10 @@
-import React from 'react'
+// import React from 'react'
+import { useState, useEffect } from 'react';
+
 
 const Sidenav = () => {
+
+  
   return (
     <>
   {/* sidebar */}
@@ -26,8 +30,9 @@ const Sidenav = () => {
         Dashboard
       </a>
       <a
+        id='patients'
         href="/patients"
-        className="flex items-center tracking-wide font-normal text-sm h-12 text-gray-700 hover:bg-purple-700 hover:text-white active:hover:bg-purple-700"
+        className="flex  items-center tracking-wide font-normal text-sm h-12 text-gray-700 hover:bg-purple-700 hover:text-white active:hover:bg-purple-700"
       >
         <svg className="w-5 h-5 fill-current mx-3" viewBox="-21 0 512 512">
           <path d="m389.332031 160c-44.09375 0-80-35.882812-80-80s35.90625-80 80-80c44.097657 0 80 35.882812 80 80s-35.902343 80-80 80zm0-128c-26.453125 0-48 21.523438-48 48s21.546875 48 48 48 48-21.523438 48-48-21.546875-48-48-48zm0 0" />
@@ -110,4 +115,4 @@ const Sidenav = () => {
   )
 }
 
-export default Sidenav
+export default Sidenav          
