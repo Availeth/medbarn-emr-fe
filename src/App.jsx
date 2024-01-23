@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
 import Addpat from "./components/Dashboard/Patients/Addpat";
 import Addsurr from "./components/Dashboard/Surrogates/Addsurr";
 import Viewsurrogate from "./components/Dashboard/Surrogates/Viewsurrogate";
+import ViewPatient from "./components/Dashboard/Patients/Viewpatient";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/surrogates" element={<Surrogates />} />
           <Route path="/add-surrogates" element={<Addsurr />} />
           <Route path="/view-surrogate/:id" element={<Viewsurrogate />} />
+          <Route path="/view-patient/:id" element={<ViewPatient />} />
           <Route path="/add-patients" element={<Addpat />} />
         </Routes>
       </Router>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from '../../Table'
+import Table from '../../Table/Patienttable';
 import Sidenav from '../../SideNav'
 import { useState, useEffect } from 'react';
 
@@ -8,17 +8,17 @@ const layout = () => {
   const [patientdata, setPatientdata] = useState([]);
   // const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  console.log(patientdata.length)
 
  
   useEffect(() => {
      const fetchData = async () => {
        try {
-         const response = await fetch('http://localhost:3170/api/getallPatient');
+         const response = await fetch('https://medbarn-emr-backend.onrender.com/api/getallPatient');
          if (!response.ok) {
            throw Error('Something went wrong!');
          }
          const data = await response.json();
-         console.log(data)
          setPatientdata(data);
         //  setLoading(false);
        } catch (error) {

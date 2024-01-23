@@ -62,7 +62,7 @@ const Table = ({array}) => {
                     </td>
                     <td className="border-b border-r border-[#E8E8E8] bg-white px-2 py-5 text-center text-base font-medium text-dark dark:border-dark dark:bg-dark-2 dark:text-dark-7">
                       <Link
-                        to={`/view-surrogate/${item._id}`}
+                        to={`/view-patient/${item._id}`}
                         className="inline-block rounded-md border border-primary px-6 py-2.5 font-medium text-primary hover:bg-primary hover:text-white"
                       >
                         View

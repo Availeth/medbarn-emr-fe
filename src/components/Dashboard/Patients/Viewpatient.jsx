@@ -5,7 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 
 
 
-const Viewsurrogate = () => {
+const ViewPatient = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
 
@@ -18,7 +18,7 @@ const Viewsurrogate = () => {
         const fetchData = async () => {
             console.log(params.id)
           try {
-            const response = await axios.get(`https://medbarn-emr-backend.onrender.com/api/getoneSurrogate/${params.id}`);
+            const response = await axios.get(`https://medbarn-emr-backend.onrender.com/api/getonePatient/${params.id}`);
             const data = await response.data;
             // console.log("data", data);
             setData(data);
@@ -41,12 +41,12 @@ const Viewsurrogate = () => {
       <div className="min-h-screen w-full bg-gray-100 pl-64 pt-16">
         <div className="p-8 text-sm text-gray-800">
           <div className=" mb-4 inline-flex space-x-20">
-            {/* {console.log(surrogateid)} */}
+            {/* {console.log(Patientid)} */}
             <h1 className="mb-8 text-4xl font-bold leading-none text-gray-700">
-              Surrogates Record
+              Patients Record
             </h1>
             <a
-              href="/add-surrogates"
+              href="/add-Patients"
               className="h-max rounded-md bg-primary px-7 py-3 text-base font-medium text-white hover:bg-primary/90"
             >
               + Add New record
@@ -75,4 +75,4 @@ const Viewsurrogate = () => {
   );
 };
 
-export default Viewsurrogate;
+export default ViewPatient;

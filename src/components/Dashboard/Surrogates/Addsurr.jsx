@@ -28,7 +28,7 @@ const Addsurr = () => {
       setLoading(true);
       const data = new FormData();
       data.append("my_file", file);
-      const res = await axios.post("http://localhost:3170/upload", data);
+      const res = await axios.post("https://medbarn-emr-backend.onrender.com/upload", data);
       // console.log(res.data.secure_url)
       // setRes(res);
       // setImglink(res.data.secure_url);
@@ -59,7 +59,7 @@ try {
   }
   console.log(data)
 
-    const response = await axios.post('http://localhost:3170/api/surrogateData', data, {
+    const response = await axios.post('https://medbarn-emr-backend.onrender.com/api/surrogateData', data, {
       headers: {
         'Content-type': 'application/json',
       },

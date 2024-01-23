@@ -13,7 +13,7 @@ const Surrogates = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3170/api/getallSurrogate",
+          "https://medbarn-emr-backend.onrender.com/api/getallSurrogate",
         );
         if (!response.ok) {
           throw Error("Something went wrong!");
@@ -30,14 +30,6 @@ const Surrogates = () => {
     fetchData();
   }, []);
 
-  // const fetchOneSurrogate = async (id) => {
-  //   try {
-  //     const response = await axios.get(`http://localhost:3170/api/getoneSurrogate/${id}`);
-  //     return response.data;
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // };
 
   return (
     <>
